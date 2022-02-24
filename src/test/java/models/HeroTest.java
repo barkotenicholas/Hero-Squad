@@ -13,7 +13,7 @@ class HeroTest {
 
     @BeforeEach
     public void setUp(){
-        hero = new Hero("Hulk",43);
+        hero = new Hero("Hulk",43,"strength");
     }
 
     @Test
@@ -33,4 +33,9 @@ class HeroTest {
         assertEquals(43,hero.getAge());
     }
 
+    @Test
+    @DisplayName("check if power returns correctly")
+    public void heroInstantiatesWithPower(){
+        assertEquals("strength",hero.getStrength());
+    }
 }
