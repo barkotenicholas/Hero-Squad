@@ -12,13 +12,31 @@ class SquadTest {
 
     @BeforeEach
     public void setUp(){
-        squad = new Squad();
+        squad = new Squad("Avengers",7,"save humanity");
     }
 
     @Test
     @DisplayName("Squad instantiates correctly")
     public void newSquadObjectsGetCreated_true(){
         assertNotNull(squad);
+    }
+
+    @Test
+    @DisplayName("Squad returns squad Name correctly")
+    public void newSquadInstantiateWithName(){
+        assertEquals("Avengers",squad.getName());
+    }
+
+    @Test
+    @DisplayName("Squad returns squad Size successfully")
+    public void newSquadInstantiatesWithSize(){
+        assertEquals(7,squad.getSize());
+    }
+
+    @Test
+    @DisplayName("Squad Returns squad cause")
+    public void newSquadInstantiatesWithCause(){
+        assertEquals("save humanity",squad.getCause());
     }
 
 }
