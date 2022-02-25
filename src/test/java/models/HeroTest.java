@@ -48,6 +48,15 @@ class HeroTest {
         Hero thor = new Hero("Thor",30,"thunder","women");
         Hero hero = new Hero("Thor",30,"thunder","women");
         assertEquals(3, Hero.getAll().size());
+    }
+
+    @Test
+    @DisplayName("Check if all heros contain a hero ")
+    public void allHeroesContainsahero_true(){
+
+        Hero thor = new Hero("Thor",30,"thunder","women");
+        assertTrue(Hero.getAll().contains(thor));
+        assertTrue(Hero.getAll().contains(hero));
 
     }
 
