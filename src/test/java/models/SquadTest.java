@@ -63,10 +63,9 @@ class SquadTest {
         squad.addHeroes(new Hero("Thor",30,"thunder","women"));
         squad.addHeroes(new Hero("Batman",40,"Rich","rules"));
         squad.addHeroes(new Hero("Hulk",43,"strength","Ego"));
-
         assertEquals(3,Squad.allHeroes().size());
-
     }
+
 
     @AfterEach
     void afterEach() {

@@ -9,11 +9,12 @@ public class Squad {
     private int size;
     private String cause;
     private static ArrayList<Squad> instances = new ArrayList<>();
-    private static ArrayList<Hero> heroes = new ArrayList<>();
+    private static ArrayList<Hero> heroes;
     public Squad(String name,int size, String cause) {
         this.name = name;
         this.size = size;
         this.cause = cause;
+        heroes = new ArrayList<>(this.size);
         instances.add(this);
     }
 
@@ -34,7 +35,12 @@ public class Squad {
     }
 
     public void addHeroes(Hero hero){
-        heroes.add(hero);
+
+        if (heroes.size() < this.size)
+            heroes.add(hero);
+        else System.out.println("Squad is full");
+
+
     }
 
     public static ArrayList<Hero> allHeroes(){
