@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Hero {
@@ -8,11 +10,14 @@ public class Hero {
     private int age;
     private String strength;
     private String weakness;
+    private static final ArrayList<Hero> instances = new ArrayList<>();
+
     public Hero(String name,int age,String strength,String weakness) {
         this.name = name;
         this.age = age;
         this.strength = strength;
         this.weakness = weakness;
+        instances.add(this);
     }
 
     public String getName() {
@@ -31,6 +36,14 @@ public class Hero {
         return weakness;
     }
 
+    public static ArrayList<Hero> getAll () {
+        return (ArrayList<Hero>) instances;
+    }
+
+
+    public static void clearAll(){
+        instances.clear();
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,4 +56,6 @@ public class Hero {
     public int hashCode() {
         return Objects.hash(name, age, strength, weakness);
     }
+
+
 }

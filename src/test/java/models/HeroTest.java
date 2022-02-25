@@ -1,9 +1,6 @@
 package models;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,5 +40,19 @@ class HeroTest {
     @DisplayName("check if weakness returns correctly")
     public void heroInstantiatesWithWeakness(){
         assertEquals("Ego",hero.getWeakness());
+    }
+
+    @Test
+    @DisplayName("Check if all hero returns")
+    public void allHeroesReturn_true(){
+        Hero thor = new Hero("Thor",30,"thunder","women");
+        Hero hero = new Hero("Thor",30,"thunder","women");
+        assertEquals(3, Hero.getAll().size());
+
+    }
+
+    @AfterEach
+     void afterEach() {
+        Hero.clearAll();
     }
 }
