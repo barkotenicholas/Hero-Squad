@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Squad {
@@ -7,11 +8,12 @@ public class Squad {
     private String name;
     private int size;
     private String cause;
-
+    private static ArrayList<Squad> instances = new ArrayList<>();
     public Squad(String name,int size, String cause) {
         this.name = name;
         this.size = size;
         this.cause = cause;
+        instances.add(this);
     }
 
     public String getName() {
@@ -24,6 +26,14 @@ public class Squad {
 
     public String getCause() {
         return cause;
+    }
+
+    public static ArrayList<Squad> getAll() {
+        return instances;
+    }
+
+    public  static void clearAll(){
+        instances.clear();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package models;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,4 +40,24 @@ class SquadTest {
         assertEquals("save humanity",squad.getCause());
     }
 
+    @Test
+    @DisplayName("check if all squad returns")
+    public void allSquadMembersReturns_true(){
+        Squad dc = new Squad("dc",7,"evil");
+        assertEquals(2,Squad.getAll().size());
+    }
+
+    @Test
+    @DisplayName("check if all squad  contains a squad")
+    public void allSquadContainSquad_true(){
+
+        Squad dc = new Squad("dc",7,"evil");
+        assertTrue(Squad.getAll().contains(dc));
+        assertTrue(Squad.getAll().contains(squad));
+    }
+
+    @AfterEach
+    void afterEach() {
+        Squad.clearAll();
+    }
 }
