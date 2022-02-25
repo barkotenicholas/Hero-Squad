@@ -9,6 +9,7 @@ public class Squad {
     private int size;
     private String cause;
     private static ArrayList<Squad> instances = new ArrayList<>();
+    private static ArrayList<Hero> heroes = new ArrayList<>();
     public Squad(String name,int size, String cause) {
         this.name = name;
         this.size = size;
@@ -30,6 +31,15 @@ public class Squad {
 
     public static ArrayList<Squad> getAll() {
         return instances;
+    }
+
+    public void addHeroes(Hero hero){
+        heroes.add(hero);
+    }
+
+    public static ArrayList<Hero> allHeroes(){
+
+        return heroes;
     }
 
     public  static void clearAll(){
