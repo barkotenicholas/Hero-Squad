@@ -1,6 +1,6 @@
 {{#partial "content"}}
 
-    <h1 class="text-center"> Hero List for team {{this.squad}} </h1>
+    <h1 class="text-center"> Hero List for team {{this.squad.name}} </h1>
 
 
     {{#if this.hero}}
@@ -25,7 +25,7 @@
 
     <div class="m-5 d-flex justify-content-center">
 
-        <a type="button" href="/hero/new/{{this.squad}}" class=" m-1 btn btn-outline-primary">Add Hero</a>
+        <a type="button" href="/hero/new/{{this.squad.id}}" class=" m-1 btn btn-outline-primary">Add Hero</a>
         <a type="button" href="/squad" class=" m-1 btn btn-outline-primary">View Squads</a>
 
     </div>

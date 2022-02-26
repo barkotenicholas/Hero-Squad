@@ -17,7 +17,6 @@ public class App {
         get("/",(request, response) -> new ModelAndView(new HashMap<>(),"index.hbs"),new HandlebarsTemplateEngine());
 
         get("/squad/new",(request, response) -> {
-
             return new ModelAndView(new HashMap<>(),"squad.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -34,32 +33,33 @@ public class App {
             String squadName = request.queryParams("squadName");
             String squadPurpose = request.queryParams("squadPurpose");
             int squadSize = Integer.parseInt(request.queryParams("size"));
-
             Squad squad = new Squad(squadName,squadSize,squadPurpose);
-
             model.put("squadName",squadName);
 
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
 
         post("/success",(request, response) -> {
+
             Map<String, Object> model = new HashMap<>();
             String squadName = request.queryParams("heroName");
-
             model.put("hero",squadName);
             return new ModelAndView(model,"herosuccess.hbs");
-        },new HandlebarsTemplateEngine());
 
-        post("/hero/:squadName",(request, response) -> {
+         },new HandlebarsTemplateEngine());
 
-            String squadname = request.params(":squadName");
+        post("/hero/:id",(request, response) -> {
+
+            int id = Integer.parseInt(request.params(":id"));
+            System.out.println("Id is"+id);
             String heroName = request.queryParams("heroName");
             String heroWeakness = request.queryParams("heroWeakness");
             String heroStrength = request.queryParams("heroStrength");
             int age = Integer.parseInt(request.queryParams("heroAge"));
-            Hero hero = new Hero(heroName,age,heroStrength,heroWeakness);
 
-            Squad squad = Squad.find(squadname);
+            Hero hero = new Hero(heroName,age,heroStrength,heroWeakness);
+            Squad squad = Squad.findById(id);
+
             squad.addHeroes(hero);
 
             Map<String,Object> model = new HashMap<>();
@@ -69,23 +69,25 @@ public class App {
         },new HandlebarsTemplateEngine());
 
 
-        get("/hero/new/:name",(request, response) -> {
-            String squadName = request.params(":name");
-            System.out.println(squadName);
+        get("/hero/new/:id",(request, response) -> {
+
+            int squadId = Integer.parseInt(request.params(":id"));
             Map<String,Object> model = new HashMap<>();
-            model.put("squad",squadName);
+            String squadName = Squad.findById(squadId).getName();
+            model.put("squad",squadId);
+            model.put("squadName",squadName);
             return new ModelAndView(model,"addhero.hbs");
         }, new HandlebarsTemplateEngine());
 
 
-        get("/hero/:name",(request, response) -> {
-            String squadName = request.params(":name");
-            System.out.println(squadName);
-            Squad one = Squad.find(squadName);
+        get("/hero/:id",(request, response) -> {
+
+            int id = Integer.parseInt(request.params(":id"));
+            Squad one = Squad.findById(id);
             Map<String, Object> model = new HashMap<>();
-            assert one != null;
-            model.put("hero",one.allHeroes());
-            model.put("squad",squadName);
+            ArrayList<Hero> heroes = one.allHeroes();
+            model.put("hero",heroes);
+            model.put("squad",one);
             return new ModelAndView(model,"hero.hbs");
         },new HandlebarsTemplateEngine());
     }
