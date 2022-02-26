@@ -1,0 +1,26 @@
+{{#partial "content"}}
+
+    <h1 class="text-center"> Hero List for team {{this.team}} </h1>
+
+
+    {{#if this.team}}
+        {{#each this.team}}
+
+        {{/each}}
+    {{else}}
+        <p>There are not heroes in this squad</p>
+    {{/if}}
+
+
+    <div class="m-5 d-flex justify-content-center">
+
+        <a type="button" href="/hero/new" class=" m-1 btn btn-outline-primary">Add Hero</a>
+        <a type="button" href="/squad" class=" m-1 btn btn-outline-primary">View Squads</a>
+
+    </div>
+
+
+
+{{/partial}}
+
+{{>layout.hbs}}

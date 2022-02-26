@@ -40,5 +40,11 @@ public class App {
 
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
+
+
+        get("/hero",(request, response) -> {
+
+            return new ModelAndView(new HashMap<>(),"hero.hbs");
+        },new HandlebarsTemplateEngine());
     }
 }
