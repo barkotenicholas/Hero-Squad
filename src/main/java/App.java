@@ -2,6 +2,7 @@ import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +18,13 @@ public class App {
         get("/squad/new",(request, response) -> {
 
             return new ModelAndView(new HashMap<>(),"squad.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/squad",(request, response) -> {
+            ArrayList<Squad> squads = Squad.getAll();
+            Map<String,Object> model = new HashMap<>();
+            model.put("squad",squads);
+            return new ModelAndView(model,"squadlist.hbs");
         },new HandlebarsTemplateEngine());
 
         post("/squad",(request, response) -> {

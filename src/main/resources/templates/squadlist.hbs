@@ -1,0 +1,28 @@
+{{#partial "content"}}
+
+    <h1 class="text-center"> Squad List </h1>
+
+
+    {{#if this.squad}}
+        {{#each this.squad}}
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <p>Squad Name :{{this.name}} </p>
+                </div>
+                <div class="card-body">
+                    <p>Squad Size :{{this.size}} </p>
+                    <p>Squad Goal :{{this.cause}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <a href="#" class="card-link">View Hero List</a>
+                </div>
+
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No Squads Available</p>
+    {{/if}}
+
+{{/partial}}
+
+{{>layout.hbs}}
