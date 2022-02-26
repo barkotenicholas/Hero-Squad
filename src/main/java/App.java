@@ -41,10 +41,25 @@ public class App {
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
 
+        post("/success",(request, response) -> {
 
-        get("/hero",(request, response) -> {
+            return new ModelAndView(new HashMap<>(),"herosuccess.hbs");
+        },new HandlebarsTemplateEngine());
 
-            return new ModelAndView(new HashMap<>(),"hero.hbs");
+        post("/hero/new/:name",(request, response) -> {
+            String squadName = request.queryParams("name");
+            Map<String,Object> model = new HashMap<>();
+            return new ModelAndView(new HashMap<>(),"addHero.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/hero/:name",(request, response) -> {
+            String squadName = request.queryParams("name");
+            Squad one = Squad.find(squadName);
+            Map<String, Object> model = new HashMap<>();
+            assert one != null;
+            model.put("hero",one.allHeroes());
+            return new ModelAndView(model,"hero.hbs");
         },new HandlebarsTemplateEngine());
     }
 }

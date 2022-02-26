@@ -63,7 +63,17 @@ class SquadTest {
         squad.addHeroes(new Hero("Thor",30,"thunder","women"));
         squad.addHeroes(new Hero("Batman",40,"Rich","rules"));
         squad.addHeroes(new Hero("Hulk",43,"strength","Ego"));
-        assertEquals(3,Squad.allHeroes().size());
+        assertEquals(3,squad.allHeroes().size());
+    }
+
+    @Test
+    @DisplayName("check if Squad can return a specific squad")
+    public void find_returnsSquad_Squad(){
+
+        Squad dc = new Squad("dc",7,"evil");
+
+        assertEquals("Avengers",Squad.find("Avengers").getName());
+
     }
 
 

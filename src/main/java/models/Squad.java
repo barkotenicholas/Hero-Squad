@@ -10,7 +10,8 @@ public class Squad {
     private String cause;
     private static ArrayList<Squad> instances = new ArrayList<>();
     private static ArrayList<Hero> heroes;
-    public Squad(String name,int size, String cause) {
+
+    public Squad(String name, int size, String cause) {
         this.name = name;
         this.size = size;
         this.cause = cause;
@@ -34,7 +35,7 @@ public class Squad {
         return instances;
     }
 
-    public void addHeroes(Hero hero){
+    public void addHeroes(Hero hero) {
 
         if (heroes.size() < this.size)
             heroes.add(hero);
@@ -43,12 +44,23 @@ public class Squad {
 
     }
 
-    public static ArrayList<Hero> allHeroes(){
+    public  ArrayList<Hero> allHeroes() {
 
         return heroes;
     }
 
-    public  static void clearAll(){
+    public static Squad find(String name) {
+
+        for (int i = 0; i < instances.size(); i++) {
+            if (instances.get(i).getName().contains(name)) {
+                return instances.get(i);
+            }
+        }
+        return null;
+    }
+
+
+    public static void clearAll() {
         instances.clear();
     }
 
