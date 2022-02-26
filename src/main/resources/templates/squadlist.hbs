@@ -5,13 +5,14 @@
 
     {{#if this.squad}}
         {{#each this.squad}}
-            <div class="card bg-dark text-white">
+            <div class="card bg-dark text-white m-5">
                 <div class="card-header">
                     <p>Squad Name :{{this.name}} </p>
                 </div>
                 <div class="card-body">
                     <p>Squad Size :{{this.size}} </p>
                     <p>Squad Goal :{{this.cause}}</p>
+                    <p>Squad members :{{this.members}}</p>
                 </div>
                 <div class="card-footer bg-transparent border-success">
                     <a href="/hero/{{this.name}}" class="card-link">View Hero List</a>

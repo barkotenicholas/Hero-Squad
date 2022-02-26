@@ -1,9 +1,9 @@
 {{#partial "content"}}
 
-    <h1 class="text-center">Welcome to add new Hero for squad {{ this.name}}</h1>
+    <h1 class="text-center">Welcome to add new Hero for squad {{ this.squad}}</h1>
 
     <div class=" d-flex justify-content-center">
-        <form action="/squad" method="post" class="was-validated">
+        <form action="/hero/{{this.squad}}" method="post" class="was-validated">
             <div class="form-group col-xs-4">
                 <label for="uname">Hero Name :</label>
                 <input type="text" class="form-control" id="uname" placeholder="Enter Hero Name" name="heroName" required>

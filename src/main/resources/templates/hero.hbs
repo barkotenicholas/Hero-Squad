@@ -1,10 +1,21 @@
 {{#partial "content"}}
 
-    <h1 class="text-center"> Hero List for team {{this.team}} </h1>
+    <h1 class="text-center"> Hero List for team {{this.squad}} </h1>
 
 
     {{#if this.hero}}
         {{#each this.hero}}
+            <div class="card text-white bg-info m-5">
+                <div class="card-header">
+                    <p>Hero Name :{{this.name}} </p>
+                </div>
+                <div class="card-body">
+                    <p>Hero Age :{{this.age}} </p>
+                    <p>hero Weakness {{this.weakness}} </p>
+                    <p>hero strength {{this.strength}} </p>
+                </div>
+
+            </div>
 
         {{/each}}
     {{else}}
@@ -14,7 +25,7 @@
 
     <div class="m-5 d-flex justify-content-center">
 
-        <a type="button" href="/hero/new" class=" m-1 btn btn-outline-primary">Add Hero</a>
+        <a type="button" href="/hero/new/{{this.squad}}" class=" m-1 btn btn-outline-primary">Add Hero</a>
         <a type="button" href="/squad" class=" m-1 btn btn-outline-primary">View Squads</a>
 
     </div>
