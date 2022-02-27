@@ -67,11 +67,33 @@ class SquadTest {
     }
 
     @Test
+    @DisplayName("Clear methods empties the list")
+    public void clearAll_emptiesAllSquadFromList_0(){
+        Squad.clearAll();
+        assertEquals(0,Squad.getAll().size());
+    }
+
+    @Test
+    @DisplayName("squad instantiates with id 1")
+    public void getId_instantiateswithid1_1(){
+        Squad.clearAll();
+        Squad dc = new Squad("dc",7,"evil");
+        assertEquals(1,dc.getId());
+    }
+
+    @Test
+    @DisplayName("Check where find returns with same ID")
+    public void find_returnsSquadWithSameID_squaddc(){
+        Squad dc = new Squad("dc",7,"evil");
+
+        assertEquals(Squad.findById(dc.getId()),dc);
+    }
+
+    @Test
     @DisplayName("check if Squad can return a specific squad")
     public void find_returnsSquad_Squad(){
 
         Squad dc = new Squad("dc",7,"evil");
-
         assertEquals("Avengers",Squad.find("Avengers").getName());
 
     }
