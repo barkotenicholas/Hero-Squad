@@ -36,7 +36,6 @@ Thumbs.db
 # Java and Gradle #
 ############
 build/
-.gradle/
 out/
 out
 
