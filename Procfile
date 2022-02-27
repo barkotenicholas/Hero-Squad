@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* org.example.App
+web: ./build/install/Hero_Squad/bin/Hero_Squad
