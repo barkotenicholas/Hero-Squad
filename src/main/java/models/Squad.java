@@ -9,13 +9,21 @@ public class Squad {
     private int size;
     private String cause;
     private static ArrayList<Squad> instances = new ArrayList<>();
-    private static ArrayList<Hero> heroes;
-    public Squad(String name,int size, String cause) {
+    private  ArrayList<Hero> heroes  = new ArrayList<>();
+    private int members;
+    private int id;
+
+    public Squad(String name, int size, String cause) {
         this.name = name;
         this.size = size;
         this.cause = cause;
-        heroes = new ArrayList<>(this.size);
+        this.members = 0;
         instances.add(this);
+        id = instances.size();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -34,21 +42,39 @@ public class Squad {
         return instances;
     }
 
-    public void addHeroes(Hero hero){
+    public void addHeroes(Hero hero) {
 
         if (heroes.size() < this.size)
             heroes.add(hero);
         else System.out.println("Squad is full");
 
-
     }
 
-    public static ArrayList<Hero> allHeroes(){
-
-        return heroes;
+    public int getMembers() {
+        return heroes.size();
     }
 
-    public  static void clearAll(){
+    public  ArrayList<Hero> allHeroes() {
+
+        return this.heroes;
+    }
+
+    public static Squad find(String name) {
+
+        for (int i = 0; i < instances.size(); i++) {
+            if (instances.get(i).getName().contains(name)) {
+                return instances.get(i);
+            }
+        }
+        return null;
+    }
+
+    public static Squad findById(int id){
+        return instances.get(id -1 );
+    }
+
+
+    public static void clearAll() {
         instances.clear();
     }
 
