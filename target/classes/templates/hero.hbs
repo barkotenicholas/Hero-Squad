@@ -1,0 +1,37 @@
+{{#partial "content"}}
+
+    <h1 class="text-center"> Hero List for team {{this.squad.name}} </h1>
+
+
+    {{#if this.hero}}
+        {{#each this.hero}}
+            <div class="card text-white bg-info m-5">
+                <div class="card-header">
+                    <p>Hero Name :{{this.name}} </p>
+                </div>
+                <div class="card-body">
+                    <p>Hero Age :{{this.age}} </p>
+                    <p>hero Weakness {{this.weakness}} </p>
+                    <p>hero strength {{this.strength}} </p>
+                </div>
+
+            </div>
+
+        {{/each}}
+    {{else}}
+        <p>There are not heroes in this squad</p>
+    {{/if}}
+
+
+    <div class="m-5 d-flex justify-content-center">
+
+        <a type="button" href="/hero/new/{{this.squad.id}}" class=" m-1 btn btn-outline-dark">Add Hero</a>
+        <a type="button" href="/squad" class=" m-1 btn btn-outline-dark">View Squads</a>
+
+    </div>
+
+
+
+{{/partial}}
+
+{{>layout.hbs}}

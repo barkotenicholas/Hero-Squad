@@ -1,0 +1,32 @@
+{{#partial "content"}}
+
+    <h1 class="text-center">Welcome to add new squad</h1>
+
+    <div class=" d-flex justify-content-center">
+        <form action="/squad" method="post" class="was-validated">
+            <div class="form-group col-xs-4">
+                <label for="uname">Squad Name :</label>
+                <input type="text" class="form-control" id="uname" placeholder="Enter Squad Name" name="squadName" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label for="pwd">Squad Purpose:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="Enter squad purpose" name="squadPurpose" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label for="pwd">Squad Size:</label>
+                <input type="number" class="form-control" id="pwd" placeholder="Enter squad Size" name="size" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{{/partial}}
+
+
+{{> layout.hbs}}
