@@ -1,8 +1,17 @@
 {{#partial "content"}}
 
-    <div class=" m-5 p-5 alert alert-success text-center" role="alert">
-        Hero {{ this.hero}} has been successfully Added
-    </div>
+       {{#if this.hero}}
+           <div class=" m-5 p-5 alert alert-success text-center" role="alert">
+               Hero {{ this.hero}} has been successfully Added
+           </div>
+       {{/if}}
+
+        {{#if this.squad}}
+            <div class=" m-5 p-5 alert alert-danger text-center" role="alert">
+            Squad {{this.squad}} is full
+            </div>
+        {{/if}}
+
 
 {{/partial}}
 
