@@ -1,1 +1,1 @@
-web: java -jar target/myapp-1.0.0.jar
+web: ./build/install/HeroSquad/bin/HeroSquad
