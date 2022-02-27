@@ -39,11 +39,7 @@ build/
 .gradle/
 out/
 out
-.gradle
-gradle
-gradlew.bat
 
-settings.gradle
 
 # IntelliJ #
 ############
