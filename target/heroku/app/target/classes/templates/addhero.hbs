@@ -1,0 +1,38 @@
+{{#partial "content"}}
+
+    <h1 class="text-center">Welcome to add new Hero for squad {{ this.squadName}}</h1>
+
+    <div class=" d-flex justify-content-center">
+        <form action="/hero/{{this.squad}}" method="post" class="was-validated">
+            <div class="form-group col-xs-4">
+                <label for="uname">Hero Name :</label>
+                <input type="text" class="form-control" id="uname" placeholder="Enter Hero Name" name="heroName" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label for="pwd">Hero Strength:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="Enter hero strength " name="heroStrength" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label for="pwd">Heroes Age:</label>
+                <input type="number" class="form-control" id="pwd" placeholder="Enter heroes age" name="heroAge" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group col-xs-4">
+                <label for="pwd">Hero Weakness:</label>
+                <input type="text" class="form-control" id="pwd" placeholder="Enter hero weakness " name="heroWeakness" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{{/partial}}
+
+
+{{> layout.hbs}}
